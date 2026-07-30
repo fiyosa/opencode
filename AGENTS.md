@@ -8,7 +8,7 @@ This project uses skills from addyosmani/agent-skills to guide senior-engineer-g
 
 ## OpenCode Integration
 
-OpenCode uses a **skill-driven execution model**. Skills live in `.opencode/skills/`, personas live in `.opencode/agents/`, reference checklists live in `.opencode/references/`, and custom slash commands live in `.opencode/commands/`.
+OpenCode uses a **skill-driven execution model**. Skills live in `.opencode/skills/`, reference checklists live in `.opencode/references/`, and custom slash commands live in `.opencode/commands/`.
 
 ### Core Rules
 
@@ -19,7 +19,7 @@ OpenCode uses a **skill-driven execution model**. Skills live in `.opencode/skil
 
 ### Path Resolution
 
-All skill, agent, and reference paths mentioned inside SKILL.md or command files are relative to `.opencode/`. For example, a reference to `references/security-checklist.md` resolves to `.opencode/references/security-checklist.md`. A reference to `agents/code-reviewer.md` resolves to `.opencode/agents/code-reviewer.md`.
+All skill, agent, and reference paths mentioned inside SKILL.md or command files are relative to `.opencode/`. For example, a reference to `references/security-checklist.md` resolves to `.opencode/references/security-checklist.md`.
 
 ### Intent → Skill Mapping
 
@@ -45,7 +45,7 @@ Even without typing a command, the agent must still auto-detect intent from natu
 - PLAN → `planning-and-task-breakdown` (or `/plan`)
 - BUILD → `incremental-implementation` + `test-driven-development` (or `/build`)
 - VERIFY → `debugging-and-error-recovery` (or `/test`)
-- REVIEW → `code-review-and-quality` (or `/code-review`)
+- REVIEW → `code-review-and-quality` (or `/review`)
 - SHIP → `shipping-and-launch` (or `/ship`)
 
 ### Execution Model
@@ -74,7 +74,6 @@ Correct behavior:
 This project has three composable layers. They have different jobs and should not be confused:
 
 - **Skills** (`.opencode/skills/<name>/SKILL.md`) — workflows with steps and exit criteria. The _how_. Mandatory hops when an intent matches.
-- **Personas** (`.opencode/agents/<role>.md`) — roles with a perspective and an output format. The _who_.
 - **Slash commands** (`.opencode/commands/*.md`) — user-facing entry points. The _when_. The orchestration layer.
 
 Composition rule: **the user (or a slash command) is the orchestrator. Personas do not invoke other personas.** A persona may invoke skills.

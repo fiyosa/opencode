@@ -6,7 +6,6 @@ Configuration of engineering skills from [addyosmani/agent-skills](https://githu
 
 ```
 .opencode/
-├── agents/          # Reviewer personas (code-reviewer, security-auditor, test-engineer, web-performance-auditor)
 ├── commands/        # Slash commands (/spec, /plan, /build, etc.)
 ├── references/       # Supplementary checklists (security, performance, accessibility, etc.)
 └── skills/          # 24 skills, one SKILL.md per skill
@@ -15,9 +14,9 @@ AGENTS.md            # Main instruction file for the agent
 
 ## Why it was adapted
 
-The original agent-skills repo is built with Claude Code as the primary target, using native slash commands under `.claude/commands/` and automatic subagent tools under `agents/`. OpenCode doesn't have either mechanism natively, so this setup makes the following adjustments.
+The original agent-skills repo is built with Claude Code as the primary target, using native slash commands under `.claude/commands/`. OpenCode doesn't have either mechanism natively, so this setup makes the following adjustments.
 
-- Skills, agents, and references were moved under `.opencode/` to keep everything in one consistent namespace
+- Skills, and references were moved under `.opencode/` to keep everything in one consistent namespace
 - The 8 command files were converted from `.toml` format to `.md` format with YAML frontmatter, matching OpenCode's custom command convention
 - `/ship` and `/webperf`, which originally called subagents in parallel, now invoke each persona sequentially in the same context, since OpenCode has no subagent tool system like Claude Code
 - `AGENTS.md` was rewritten so every referenced path matches the `.opencode/` structure
