@@ -48,6 +48,33 @@ Even without typing a command, the agent must still auto-detect intent from natu
 - REVIEW → `code-review-and-quality` (or `/review`)
 - SHIP → `shipping-and-launch` (or `/ship`)
 
+### Standard Workflow
+
+The default sequence for building a new feature, end to end:
+
+```
+/spec → /plan → /build → /test → /review → /ship
+```
+
+For UI/UX work, ui-ux-pro-max runs before or during `/spec`, its design decisions (colors, layout, typography) should already be reflected in the spec before `/plan` breaks it into tasks.
+
+```
+ui-ux-pro-max → /spec → /plan → /build → /test → /review → (/webperf if UI-heavy) → /ship
+```
+
+Guidance for each step:
+
+- **/spec** — always the starting point for a new feature or significant change. Do not skip straight to `/plan` or `/build` without a spec.
+- **/plan** — run once the spec is confirmed. Breaks the spec into small, verifiable tasks.
+- **/build** — implements one task at a time (or the whole plan with `/build auto`). Each task must pass its own test before moving to the next.
+- **/test** — used standalone for the Prove-It pattern on bug fixes, or as part of `/build`'s RED-GREEN-REFACTOR loop for new features.
+- **/code-simplify** — optional, run after `/build` and `/test` pass, when the working code needs cleanup without behavior changes. Not part of the mandatory path.
+- **/review** — run before every merge, regardless of change size. Lighter weight than `/ship`, single-persona.
+- **/webperf** — run when the change touches browser-facing UI with meaningful visual or data load (images, charts, large lists, real-time data). Skip for backend-only or CLI changes.
+- **/ship** — the final gate before deploying to production. Mandatory fan-out review unless the change is trivial: 2 files or fewer, under 50 lines, and does not touch auth, payments, data access, or config/env. Otherwise `/ship` is required even for small-looking diffs.
+
+Do not jump ahead in the sequence (e.g. `/build` before `/spec` exists, or `/ship` before `/test` has passed) unless the user explicitly asks to skip a step.
+
 ### Execution Model
 
 For every request:
