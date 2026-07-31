@@ -12,7 +12,7 @@ OpenCode does not expose custom agent files as separate callable subagent tools 
 
 Read and apply each persona definition in order:
 
-1. **`.opencode/agents/code-reviewer.md`** — Run a five-axis review (correctness, readability, architecture, security, performance) on the staged changes or recent commits. Output the standard review template.
+1. **`.opencode/agents/reviewer-code.md`** — Run a five-axis review (correctness, readability, architecture, security, performance) on the staged changes or recent commits. Output the standard review template.
 2. **`.opencode/agents/security-auditor.md`** — Run a vulnerability and threat-model pass. Check OWASP Top 10, secrets handling, auth/authz, dependency CVEs. Output the standard audit report.
 3. **`.opencode/agents/test-engineer.md`** — Analyze test coverage for the change. Identify gaps in happy path, edge cases, error paths, and concurrency scenarios. Output the standard coverage analysis.
 

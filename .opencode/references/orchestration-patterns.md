@@ -124,7 +124,7 @@ This catalog is harness-agnostic, but most readers will run it on Claude Code. H
 
 ### Where personas live
 
-Plugin subagents go in `agents/` at the plugin root. This repo is a plugin (`.claude-plugin/plugin.json`), so `.opencode/agents/code-reviewer.md`, `.opencode/agents/security-auditor.md`, and `.opencode/agents/test-engineer.md` are auto-discovered when the plugin is enabled. No path configuration needed.
+Plugin subagents go in `agents/` at the plugin root. This repo is a plugin (`.claude-plugin/plugin.json`), so `.opencode/agents/reviewer-code`, `.opencode/agents/security-auditor.md`, and `.opencode/agents/test-engineer.md` are auto-discovered when the plugin is enabled. No path configuration needed.
 
 ### Subagents vs. Agent Teams
 
