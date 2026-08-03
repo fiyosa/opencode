@@ -4,7 +4,7 @@ This file provides guidance to AI coding agents working with code in this reposi
 
 ## Repository Overview
 
-This project uses skills from addyosmani/agent-skills to guide senior-engineer-grade development workflows.
+This project uses skills from addyosmani/agent-skills to guide senior-engineer-grade development workflows, combined with ui-ux-pro-max for design system generation on UI/UX tasks.
 
 ## OpenCode Integration
 
@@ -32,6 +32,20 @@ The agent should automatically map user intent to skills, even without a slash c
 - Refactoring / simplification → `code-simplification`
 - API or interface design → `api-and-interface-design`
 - UI work → `frontend-ui-engineering`
+
+### UI/UX Design Skill
+
+This project also has the ui-ux-pro-max skill installed, which auto-activates independently from the skills above. It provides design system generation (layout patterns, color palettes, typography, anti-patterns) for UI/UX requests.
+
+- Trigger words: "build a landing page", "create a dashboard", "design a...", "make a UI for..."
+- This skill activates on its own detection logic, separate from the Intent → Skill Mapping rules above
+- It runs alongside, not instead of, the engineering skills. A UI request should still follow the normal lifecycle:
+  1. ui-ux-pro-max generates the design system (colors, layout, typography)
+  2. `spec-driven-development` captures the technical spec if the work is a new feature
+  3. `frontend-ui-engineering` guides code structure and implementation quality
+  4. `incremental-implementation` + `test-driven-development` for the build itself
+
+Do not let ui-ux-pro-max's design output skip the spec/build/test lifecycle for anything beyond a trivial visual tweak.
 
 ### Slash Commands
 

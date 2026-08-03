@@ -81,9 +81,23 @@ Note, `/code-review` here overrides OpenCode's built-in `/code-review` command f
 
 Skills also activate automatically based on context, without needing a slash command. See the Intent → Skill Mapping section in `AGENTS.md` for the full mapping.
 
+## UI/UX Design Skill (ui-ux-pro-max)
+
+This project also has [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) installed, providing design system generation (layout patterns, color palettes, typography, anti-patterns) for UI/UX requests. It auto-activates independently from the skills above, no command needed.
+
+```
+Build a landing page for my SaaS product
+Create a dashboard for healthcare analytics
+```
+
+Requires Python 3.x locally (used only by the skill's local search script, no network calls). Check with `python3 --version`.
+
+It runs alongside, not instead of, the engineering skills above, see `AGENTS.md` for how it fits into the spec → build → test lifecycle.
+
 ## Source
 
 - Repo: [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
+- Repo: [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 - License: MIT
 
 ```
