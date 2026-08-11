@@ -146,7 +146,7 @@ After modifying code in this session, ask the user before running the graph upda
 
 1. Ask: "Update the graphify graph now? (`graphify update .`)"
 2. Wait for the user's yes or no.
-3. If yes, run `graphify update .` and confirm it ran.
+3. If yes, run `graphify update .` to keep the graph current (AST-only, no API cost) and confirm it ran.
 4. If no, note in the summary that the graph was not updated.
 
 Do not summarize the task as complete without asking this question first.
