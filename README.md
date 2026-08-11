@@ -102,16 +102,17 @@ This project uses [graphify](https://github.com/Graphify-Labs/graphify) to turn 
 
 All outputs live in `graphify-out/`:
 
-| File            | Description                                            |
-| --------------- | ------------------------------------------------------ |
-| `graph.html`    | Interactive graph, open in the browser                 |
-| `graph.json`    | Raw graph data (GraphRAG-ready)                        |
+| File              | Description                                              |
+| ----------------- | -------------------------------------------------------- |
+| `graph.html`      | Interactive graph, open in the browser                   |
+| `graph.json`      | Raw graph data (GraphRAG-ready)                          |
 | `GRAPH_REPORT.md` | Plain-language audit report with god nodes and questions |
 
 ### Usage
 
 ```
 /graphify                              # full pipeline on current directory
+graphify extract . --code-only         # create folder graphify-out code only, local AST, no LLM or API key needed
 graphify query "<question>"            # answer a codebase question from the graph
 graphify path "<A>" "<B>"              # shortest path between two concepts
 graphify explain "<concept>"           # plain-language explanation of a node
