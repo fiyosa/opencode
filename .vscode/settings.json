@@ -1,0 +1,15 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.guides.indentation": true,
+  "editor.tabSize": 2,
+  "search.exclude": {
+    "**/node_modules/**": true,
+    "**/vendor/**": true,
+    "*lock.json": true,
+    "*.lock": true
+  },
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  }
+}
