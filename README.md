@@ -94,42 +94,10 @@ Requires Python 3.x locally (used only by the skill's local search script, no ne
 
 It runs alongside, not instead of, the engineering skills above, see `AGENTS.md` for how it fits into the spec → build → test lifecycle.
 
-## Knowledge Graph (graphify)
-
-This project uses [graphify](https://github.com/Graphify-Labs/graphify) to turn the codebase into a persistent, queryable knowledge graph with community detection, god nodes, and cross-file relationships.
-
-### Outputs
-
-All outputs live in `graphify-out/`:
-
-| File              | Description                                              |
-| ----------------- | -------------------------------------------------------- |
-| `graph.html`      | Interactive graph, open in the browser                   |
-| `graph.json`      | Raw graph data (GraphRAG-ready)                          |
-| `GRAPH_REPORT.md` | Plain-language audit report with god nodes and questions |
-
-### Usage
-
-```
-/graphify                              # full pipeline on current directory
-graphify extract . --code-only         # create folder graphify-out code only, local AST, no LLM or API key needed
-graphify query "<question>"            # answer a codebase question from the graph
-graphify path "<A>" "<B>"              # shortest path between two concepts
-graphify explain "<concept>"           # plain-language explanation of a node
-graphify update .                      # incremental re-extract after code changes
-```
-
-### How it's wired into OpenCode
-
-- A [graphify plugin](.opencode/plugins/graphify.js) injects a reminder before bash tool calls whenever `graphify-out/graph.json` exists, steering agents toward `graphify query` instead of raw greps.
-- The plugin is registered in [`.opencode/opencode.json`](.opencode/opencode.json).
-- `AGENTS.md` instructs the agent to prefer graphify queries for codebase questions and asks before running `graphify update .` after code changes.
-
 ## Source
 
 - Repo: [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 - Repo: [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- Repo: [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)
 - License: MIT
 
 ```
