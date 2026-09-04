@@ -1,18 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "mode": {
-    // "build": {
-    //   "model": "opencode/deepseek-v4-flash-free"
-    // },
-    // "plan": {
-    //   "model": "opencode/mimo-v2.5-free"
-    // }
-  },
   "permission": {
-    "read": {
+    "edit": {
+      "*": "ask",
       ".opencode/**": "allow"
     },
-    "edit": {
+    "read": {
+      "*": "allow",
+      "*.env*": "deny",
       ".opencode/**": "allow"
     }
   },

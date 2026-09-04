@@ -94,12 +94,31 @@ Requires Python 3.x locally (used only by the skill's local search script, no ne
 
 It runs alongside, not instead of, the engineering skills above, see `AGENTS.md` for how it fits into the spec → build → test lifecycle.
 
+## CodeGraph
+
+[CodeGraph](https://github.com/colbymchenry/codegraph) — pre-indexed code knowledge graph. When `.codegraph/` exists, agents use `codegraph_explore` / `codegraph_node` instead of grep/read loops.
+
+### Setup
+
+```sh
+npx @colbymchenry/codegraph  # installer — auto-detects opencode
+codegraph init               # build graph for this project (creates .codegraph/)
+```
+
+Restart your agent after install so the MCP server loads. One global install covers all projects; run `init` once per project.
+
+### Usage
+
+```sh
+codegraph init        # initialize + full build
+codegraph sync        # incremental update
+codegraph index       # full re-index from scratch
+codegraph daemon      # stop background daemons
+codegraph status      # show graph stats (--json for machine-readable)
+```
+
 ## Source
 
 - Repo: [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 - Repo: [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- License: MIT
-
-```
-
-```
+- Repo: [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph)
