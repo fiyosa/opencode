@@ -110,11 +110,11 @@ Restart your agent after install so the MCP server loads. One global install cov
 ### Usage
 
 ```sh
-codegraph init     # initialize + full build
-codegraph sync     # incremental update
-codegraph index    # full re-index from scratch
-codegraph daemon   # manage background daemons
-codegraph status   # show graph stats (--json for machine-readable)
+codegraph init        # initialize + full build
+codegraph sync        # incremental update
+codegraph index       # full re-index from scratch
+codegraph daemon      # stop background daemons
+codegraph status      # show graph stats (--json for machine-readable)
 ```
 
 ## Source
