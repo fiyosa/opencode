@@ -99,7 +99,3 @@ It runs alongside, not instead of, the engineering skills above, see `AGENTS.md`
 - Repo: [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 - Repo: [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 - License: MIT
-
-```
-
-```

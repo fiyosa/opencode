@@ -2,7 +2,7 @@
 description: Run a web performance audit via the web-performance-auditor persona
 ---
 
-Invoke the performance-optimization skill from .opencode/skills/performance-optimization/SKILL.md, applying the perspective defined in .opencode/agents/web-performance-auditor.md.
+Invoke the performance-optimization skill from .opencode/skills/performance-optimization/SKILL.md, applying the perspective defined in .opencode/agent-skills/web-performance-auditor.md.
 
 `/webperf` targets web applications specifically. Do not use it for utility libraries, CLIs, or server-only code with no browser-facing output.
 
@@ -21,7 +21,7 @@ Quick mode — default when none of the above are available. Scan source code fo
 
 ## Run the audit
 
-Apply the persona and process defined in `.opencode/agents/web-performance-auditor.md` to the current request. Take into account:
+Apply the persona and process defined in `.opencode/agent-skills/web-performance-auditor.md` to the current request. Take into account:
 
 - The files, components, or diff under review
 - Any artifact paths (Lighthouse JSON, PSI JSON, CrUX response, trace) or pasted JSON content
