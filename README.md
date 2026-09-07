@@ -131,7 +131,3 @@ graphify update .                      # incremental re-extract after code chang
 - Repo: [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 - Repo: [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)
 - License: MIT
-
-```
-
-```

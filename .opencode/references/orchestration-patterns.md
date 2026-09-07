@@ -124,7 +124,7 @@ This catalog is harness-agnostic, but most readers will run it on Claude Code. H
 
 ### Where personas live
 
-Plugin subagents go in `agents/` at the plugin root. This repo is a plugin (`.claude-plugin/plugin.json`), so `.opencode/agents/reviewer-code`, `.opencode/agents/security-auditor.md`, and `.opencode/agents/test-engineer.md` are auto-discovered when the plugin is enabled. No path configuration needed.
+Plugin subagents go in `agent-skills/` at the plugin root. This repo is a plugin (`.claude-plugin/plugin.json`), so `.opencode/agent-skills/reviewer-code`, `.opencode/agent-skills/security-auditor.md`, and `.opencode/agent-skills/test-engineer.md` are auto-discovered when the plugin is enabled. No path configuration needed.
 
 ### Subagents vs. Agent Teams
 
@@ -165,7 +165,7 @@ Don't redefine these. Layer your specialist personas (code-reviewer, security-au
 
 ### Frontmatter restrictions for plugin agents
 
-Plugin subagents do **not** support the `hooks`, `mcpServers`, or `permissionMode` frontmatter fields — these are silently ignored. If a future persona needs any of those, the user must copy the file into `.claude/agents/` or `~/.claude/agents/` instead.
+Plugin subagents do **not** support the `hooks`, `mcpServers`, or `permissionMode` frontmatter fields — these are silently ignored. If a future persona needs any of those, the user must copy the file into `.claude/agent-skills/` or `~/.claude/agent-skills/` instead.
 
 The fields that DO work in plugin agents are: `name`, `description`, `tools`, `disallowedTools`, `model`, `maxTurns`, `skills`, `memory`, `background`, `effort`, `isolation`, `color`, `initialPrompt`. Use `model` per-persona if you want to optimize cost (e.g. Haiku for `test-engineer` coverage scans, Sonnet for `code-reviewer`, Opus for `security-auditor`).
 
