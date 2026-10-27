@@ -2,11 +2,23 @@
 
 This file provides guidance to AI coding agents working with code in this repository, using OpenCode.
 
-## Repository Overview
+## Global Rules
 
-This project uses skills from addyosmani/agent-skills to guide senior-engineer-grade development workflows, combined with ui-ux-pro-max for design system generation on UI/UX tasks.
+- Do not read any file that contains "env" in its name or path.
+- Write code comments in English.
 
-## OpenCode Integration
+## Active Systems
+
+This repository only uses three systems:
+
+1. **Agent Skills** — addyosmani/agent-skills for engineering workflows, plus the matching slash commands.
+2. **UI/UX Pro Max** — design system generation for UI/UX work.
+
+Use the matching group below. Do not introduce other agent frameworks or workflows.
+
+---
+
+## Agent Skills
 
 OpenCode uses a **skill-driven execution model**. Skills live in `.opencode/skills/`, reference checklists live in `.opencode/references/`, and custom slash commands live in `.opencode/commands/`.
 
@@ -31,21 +43,7 @@ The agent should automatically map user intent to skills, even without a slash c
 - Code review → `code-review-and-quality`
 - Refactoring / simplification → `code-simplification`
 - API or interface design → `api-and-interface-design`
-- UI work → `frontend-ui-engineering`
-
-### UI/UX Design Skill
-
-This project also has the ui-ux-pro-max skill installed, which auto-activates independently from the skills above. It provides design system generation (layout patterns, color palettes, typography, anti-patterns) for UI/UX requests.
-
-- Trigger words: "build a landing page", "create a dashboard", "design a...", "make a UI for..."
-- This skill activates on its own detection logic, separate from the Intent → Skill Mapping rules above
-- It runs alongside, not instead of, the engineering skills. A UI request should still follow the normal lifecycle:
-  1. ui-ux-pro-max generates the design system (colors, layout, typography)
-  2. `spec-driven-development` captures the technical spec if the work is a new feature
-  3. `frontend-ui-engineering` guides code structure and implementation quality
-  4. `incremental-implementation` + `test-driven-development` for the build itself
-
-Do not let ui-ux-pro-max's design output skip the spec/build/test lifecycle for anything beyond a trivial visual tweak.
+- UI/UX design → see [UI/UX Pro Max](#uiux-pro-max)
 
 ### Slash Commands
 
@@ -110,12 +108,13 @@ Correct behavior:
 
 - Always check for and use skills first
 
-## Orchestration: Personas, Skills, and Commands
+### Orchestration: Personas, Skills, and Commands
 
 This project has three composable layers. They have different jobs and should not be confused:
 
 - **Skills** (`.opencode/skills/<name>/SKILL.md`) — workflows with steps and exit criteria. The _how_. Mandatory hops when an intent matches.
 - **Slash commands** (`.opencode/commands/*.md`) — user-facing entry points. The _when_. The orchestration layer.
+- **Personas** (`.opencode/agent-skills/*.md`) — specialist review perspectives used by commands such as `/ship` and `/webperf`.
 
 Composition rule: **the user (or a slash command) is the orchestrator. Personas do not invoke other personas.** A persona may invoke skills.
 
@@ -123,6 +122,22 @@ The only multi-persona pattern this project uses is **sequential fan-out with a 
 
 See `.opencode/references/orchestration-patterns.md` for the full pattern catalog.
 
-## Reference Checklists
+### Reference Checklists
 
 Supplementary checklists live in `.opencode/references/`: `security-checklist.md`, `performance-checklist.md`, `accessibility-checklist.md`, `testing-patterns.md`, `observability-checklist.md`, `definition-of-done.md`, `orchestration-patterns.md`. Load these when a skill needs detail beyond what's in its SKILL.md.
+
+---
+
+## UI/UX Pro Max
+
+The `ui-ux-pro-max` skill is installed at `.opencode/skills/ui-ux-pro-max/SKILL.md`. It auto-activates independently from the engineering skills above and provides design system generation (layout patterns, color palettes, typography, anti-patterns) for UI/UX requests.
+
+- Trigger words: "build a landing page", "create a dashboard", "design a...", "make a UI for..."
+- This skill activates on its own detection logic, separate from the Intent → Skill Mapping rules above.
+- It runs alongside, not instead of, the engineering skills. A UI request should still follow the normal lifecycle:
+  1. ui-ux-pro-max generates the design system (colors, layout, typography)
+  2. `spec-driven-development` captures the technical spec if the work is a new feature
+  3. `frontend-ui-engineering` guides code structure and implementation quality
+  4. `incremental-implementation` + `test-driven-development` for the build itself
+
+Do not let ui-ux-pro-max's design output skip the spec/build/test lifecycle for anything beyond a trivial visual tweak.
