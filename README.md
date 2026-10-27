@@ -2,6 +2,17 @@
 
 Engineering workflows, design-system generation, and code intelligence for this repository, wired into [OpenCode](https://opencode.ai).
 
+## Progress Tracking (Todos)
+
+The user wants to follow the work as it happens:
+
+- Before starting, post a short `todowrite` list for any task with 3+ distinct steps, multiple files, or a debugging loop.
+- Keep exactly one item `in_progress`; update it immediately when a step starts or finishes.
+- Narrate each phase in one line: what you are doing now and what the result was. The user should not have to guess from tool output alone.
+- Mark `completed` only after verification (tests, lint, command output). If blocked, state the cause and the next attempt instead of silently retrying.
+- Add newly discovered follow-ups to the list; cancel stale items.
+- For quick questions or a single trivial edit, answer directly without a todo list, but still say what you are checking.
+
 ## Active systems
 
 | System            | Purpose                                                           | Location                          |
