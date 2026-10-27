@@ -10,7 +10,8 @@
   // },
   "permission": {
     "edit": { "*": "ask" },
-    "read": { "*": "allow", "*.env*": "deny", "*.env.example": "allow" }
+    "read": { "*": "allow", "*.env*": "deny", "*.env.example": "allow" },
+    "bash": { "*": "allow", "git push *": "deny" }
   },
   "mcp": {
     "codegraph": {
