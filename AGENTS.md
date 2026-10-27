@@ -7,6 +7,17 @@ This file provides guidance to AI coding agents working with code in this reposi
 - Do not read any file that contains "env" in its name or path.
 - Write code comments in English.
 
+## Progress Tracking (Todos)
+
+The user wants to follow the work as it happens:
+
+- Before starting, post a short `todowrite` list for any task with 3+ distinct steps, multiple files, or a debugging loop.
+- Keep exactly one item `in_progress`; update it immediately when a step starts or finishes.
+- Narrate each phase in one line: what you are doing now and what the result was. The user should not have to guess from tool output alone.
+- Mark `completed` only after verification (tests, lint, command output). If blocked, state the cause and the next attempt instead of silently retrying.
+- Add newly discovered follow-ups to the list; cancel stale items.
+- For quick questions or a single trivial edit, answer directly without a todo list, but still say what you are checking.
+
 ## Active Systems
 
 This repository only uses three systems:
@@ -106,10 +117,11 @@ Do not jump ahead in the sequence (e.g. `/build` before `/spec` exists, or `/shi
 
 For every request:
 
-1. Determine if any skill applies (even 1% chance)
-2. Read the appropriate skill file from `.opencode/skills/`
-3. Follow the skill workflow strictly
-4. Only proceed to implementation after required steps (spec, plan, etc.) are complete
+1. For multi-step work, post a `todowrite` list and narrate each phase (see Progress Tracking)
+2. Determine if any skill applies (even 1% chance)
+3. Read the appropriate skill file from `.opencode/skills/`
+4. Follow the skill workflow strictly
+5. Only proceed to implementation after required steps (spec, plan, etc.) are complete
 
 ### Anti-Rationalization
 
